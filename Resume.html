@@ -21,6 +21,10 @@
 			margin-right:10px;
 			margin-left:30px;
 		}
+		img.picture
+		{   
+   			border-radius: 50%;   
+		}   
 		h2
 		{
 			margin-top:20px;
@@ -47,7 +51,7 @@
 		<table>
 			<td >&nbsp &nbsp &nbsp &nbsp</td>
 			<td>
-				<img  src="https://images.cakeresume.com/km22A/melody-576938/545f73da-3d11-407b-b3b9-16d03de6b525.png" style="width: 151px;"/>
+				<img  class='picture' src="picture.jpg" style="width: 120px;"/>
 			</td>
 			<td >&nbsp &nbsp &nbsp &nbsp &nbsp</td>
 			<td>
@@ -60,7 +64,14 @@
 		</table>
 		<div>
 			<h2>
-				<img src="https://images.cakeresume.com/km22A/melody-576938/c5cee576-2120-4c34-9377-0b17229205c2.png" style="width: 30px;" />技能
+				<table>
+					<td>
+						<img src="https://images.cakeresume.com/km22A/melody-576938/c5cee576-2120-4c34-9377-0b17229205c2.png" style="width: 30px;" />
+					</td>
+					<td>
+						技能
+					</td>
+				</table>
 			</h2>
 			<div class="margin2">
 				<table>
@@ -138,7 +149,7 @@
 				<hr>
 				<h3>新聞文字探勘及視覺化</h3>
 				<p style="color: #888;">
-					Nov 2020 -
+					Nov 2020 - Jan 2021
 				</p>
 				<p>動機</p>
 				<div>使用新聞資訊進行資料視覺化</div>
@@ -147,7 +158,7 @@
 					<li>使用Python爬蟲(Beautifulsoup、Selenium)蒐集新聞資料(鉅亨網、科技新報、紐約時報)。</li>
 					<li>使用正則表達式將資料清洗並存入mongoDB。</li>
 					<li>建立詞庫並使用jieba進行斷詞斷句。</li>
-					<li>使用TFIDF算法將文章貼標籤及建立文字雲來進行視覺化，可以快速了解文章內容及新聞焦點</li>
+					<li>使用TFIDF算法生成文章中具代表性的字詞，來作為<a href=https://public.flourish.studio/story/906725/>標籤</a>及使用詞頻建立<a href=https://codepen.io/2375_takasugi/full/GRmJgqd>文字雲</a>來進行視覺化，可以快速了解文章內容及新聞焦點，最後將標籤整合成金融標籤詞庫，點選標籤就搜尋出對應文章，可以做為投放廣告的基礎。</li>
 				</ol>
 			</div>
 		</div>
