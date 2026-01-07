@@ -1,193 +1,313 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-	<meta charset="utf-8"/>
-	<title>張彤如</title>
-	<style>
-		div.margin1
-		{
-			margin-top:50px;
-			margin-bottom:20px;
-			margin-right:80px;
-			margin-left:70px;
-			background-color:white;
-			padding: 20px 30px 10px 30px;
-			border: solid;
-			border-radius: 50px;
-			border-color: rgb(55, 138, 173);
-		}
-		div.margin2
-		{
-			margin-right:10px;
-			margin-left:30px;
-		}
-		img.picture
-		{   
-   			border-radius: 50%;   
-		}   
-		h2
-		{
-			margin-top:20px;
-			margin-bottom:0px;
-			font-size:24px;
-			color: rgb(55, 138, 173);
-			font-weight: bold
-		}
-		h3{
-			font-weight: bold;
-			font-size:20px;
-		}
-		p{
-			font-weight: bold;
-		}
-		body{
-			font-size:16px;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>張彤如｜個人資訊頁面</title>
+  <style>
+    :root {
+      --bg-color: #f9f7f5; /* 溫暖淺米色 */
+      --card-bg: #ffffff;
+      --primary-color: #7a8d99; /* 莫蘭迪灰藍 */
+      --text-main: #4a4a4a;
+      --text-sub: #8c8c8c;
+      --accent-color: #e8ecef;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    /* 頂部個人檔案卡片 */
+    .profile-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid var(--accent-color);
+    }
+
+    .profile-card h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    /* 分頁導覽列 */
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      gap: 15px;
+    }
+
+    .tab-btn {
+      padding: 10px 25px;
+      border: none;
+      background: none;
+      font-size: 16px;
+      color: var(--text-sub);
+      cursor: pointer;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active {
+      background-color: var(--primary-color);
+      color: white;
+      box-shadow: 0 4px 15px rgba(122, 141, 153, 0.3);
+    }
+
+    /* 內容區塊 */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    h2 {
+      font-size: 20px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      border-left: 4px solid var(--primary-color);
+      padding-left: 15px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .date-location {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    li::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* 技能標籤 */
+    .skill-group {
+      margin-bottom: 20px;
+    }
+
+    .skill-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: var(--accent-color);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--text-sub);
+      font-size: 14px;
+    }
+
+  </style>
 </head>
 <body>
 
-	<div class="margin1">
-		<table>
-			<td >&nbsp &nbsp &nbsp &nbsp</td>
-			<td>
-				<img  class='picture' src="picture.png" style="width: 120px;"/>
-			</td>
-			<td >&nbsp &nbsp &nbsp &nbsp &nbsp</td>
-			<td>
-				<h1>張彤如</h1>
-				<p>tungju8221@gmail.com</p>
-				<p>淡江大學統計系 
-					<span style="color: rgb(136, 136, 136);">2017-2021</span>
-				</p>
-			</td>
-		</table>
-		<div>
-			<h2>
-				<table>
-					<td>
-						<img src="https://images.cakeresume.com/km22A/melody-576938/c5cee576-2120-4c34-9377-0b17229205c2.png" style="width: 30px;" />
-					</td>
-					<td>
-						技能
-					</td>
-				</table>
-			</h2>
-			<div class="margin2">
-				<table>
-					<tr>
-						<td ><h3>程式語言</h3><hr/></td>
-						<td >&nbsp &nbsp &nbsp &nbsp &nbsp</td>
-						<td ><h3>統計分析</h3><hr/></td>	
-					</tr>
-					<tr>
-						<td>
-							<table>
-								<font size="20px">
-									<td>
-										<ul>
-											<li>SAS</li>
-											<li>R</li>
-											<li>Python</li>
-											<li>SQL</li>
-										</ul>
-									</td>	
-									<td >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>	
-									<td>
-										<span style="color: rgb(55, 138, 173);"> 
-											<table>●●●○○</table>
-											<table>●●●●○</table>
-											<table>●●●●○</table>
-											<table>●●●○○</table>
-										</span>
-									</td>
-								</font>
-							</table>
-							<div>SAS base programmer證照、Python使用Beautifulsoup、Selenium爬蟲、SQL使用select語法提取數據、基礎網站架構(HTML、CSS)</div>
-						</td>	
-						<td >&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</td>
-						<td >
-							<p>(主要以R進行分析)</p>
-							<div>卡方檢定 、迴歸分析、羅吉斯迴歸、時間數列、無母數統計、集群分析、決策樹、 因素分析、主成份分析
-							</div>
-						</td>	
-					</tr>						
-				</table>
-			</div>
-		</div>
-		<div>
-			<h2>
-				<img src="https://images.cakeresume.com/km22A/melody-576938/34a065ec-47e5-4c96-8bbf-9d88dc3c0b63.png" style="width: 30px;"/>參與專案
-			</h2>
-			<div class="margin2">
-				<h3>金融商品精準行銷客群分析</h3>
-				<p style="color: #888;">Nov 2019 - Jan 2020</p>
-				<p>動機：</p>
-				<div>新冠疫情期間數位銀行的需求提高，除了內部傳統銀行競爭激烈，還有外部預計加入的純網銀威脅，如何在有限的成本下對客戶行銷數位銀行。
-				</div>
-				<p>結論：</p>
-				<div>使用k-means集群分析，在約100萬的客戶中選出13萬行為高度數位化的客戶進行精準行銷，可以減少約87%的行銷成本，在有限的成本下達到最高效益。</div>
-				<p>負責項目：</p>
-				<ol>
-					<li>參與100萬筆、52個變數的銀行數據處理，如補遺失值、資料分類、標準化。</li>
-					<li>使用R進行k-means集群分析。
-						<div align="center">
-							<img src="https://images.cakeresume.com/km22A/melody-576938/e67a74d2-c5b2-473a-a0b7-e213bf12232d.png" width="750px;">
-						</div>
-					</li>
-					<li>參與結果呈現，進行客群輪廓描繪(圖三)，從中選出數位化程度高的客戶進行精準行銷，模擬目標客群製作人物誌(Persona)(圖四)，使業務單位快速了解進行行銷。</li>
-				</ol>
-			
-				<div align="center">
-					<img src="https://images.cakeresume.com/km22A/melody-576938/fd350c8c-550e-41a4-b6e1-90dbaaa3d104.png" width=" 560px;" align="center">
-				</div>
-				<p style="text-align: center;">圖三</p>
-				<div align="center">
-					<img  src="https://images.cakeresume.com/km22A/melody-576938/b3d50d8e-3565-4087-9d6e-6d3439acc673.png" width="550px" >
-				</div>
-				<p style="text-align: center;">圖四</p>	
-				<hr>
-				<h3>新聞文字探勘及視覺化</h3>
-				<p style="color: #888;">
-					Nov 2020 - Jan 2021
-				</p>
-				<p>動機</p>
-				<div>使用新聞資訊進行資料視覺化</div>
-				<p>負責項目：</p>
-				<ol>
-					<li>使用Python爬蟲(Beautifulsoup、Selenium)蒐集新聞資料(鉅亨網、科技新報、紐約時報)。</li>
-					<li>使用正則表達式將資料清洗並存入mongoDB。</li>
-					<li>建立詞庫並使用jieba進行斷詞斷句。</li>
-					<li>使用TFIDF算法生成文章中具代表性的字詞，來作為<a href=https://public.flourish.studio/story/906725/>標籤</a>及使用詞頻建立<a href=https://codepen.io/2375_takasugi/full/GRmJgqd>文字雲</a>來進行視覺化，可以快速了解文章內容及新聞焦點，最後將標籤整合成金融標籤詞庫，點選標籤就搜尋出對應文章，可以做為投放廣告的基礎。</li>
-				</ol>
-			</div>
-		</div>
-		<div>
-			<h2>
-				<img src="https://images.cakeresume.com/km22A/melody-576938/0f5eb000-c10a-46aa-b7a9-47b367991c33.png" style="width: 30px;"/>個人特質與期許
-			</h2>
-		
-			<div class="margin2">
-				<td >
-					<ol>
-						<li>學習能力強
-							<br>對於分析及程式設計抱有熱忱，除了自行上網學習外，也經常在課餘期間參加社群討論活動(如R Ladis Taipei)，相互分享、討論新知識(如好用的套件或新的分析方法)，而我也能快速的吸收與應用。
-						</li>
-						<li>責任感強
-							<br>在學期間擔任桌遊社團幹部，責任感強，負責的工作皆準時繳交。
-						</li>
-						<li>對統計分析及程式撰寫感興趣，期許未來能將所學應用於實務上，為帶來公司貢獻。
-						</li>
-					</ol>
-				</td>
-			</div>
-		</div>
-	</div>	
-	<p style="text-align: center;">
-		<span style='color: rgb(85, 85, 85);'>
-			謝謝您撥空翻閱我的履歷，希望未來有機會為貴公司貢獻一己之力
-		</span>
-	</p>
-	
+<div class="container">
+  <div class="profile-card">
+    <img src="images/picture.png" alt="張彤如" class="profile-img" onerror="this.src='https://via.placeholder.com/120?text=Profile'">
+    <h1>張彤如</h1>
+    <div class="contact-info">
+      <p>女 ｜ 27歲 ｜ 新北市永和區</p>
+      <p>Email: tungju8221@gmail.com ｜ 手機：+886912-618-041</p>
+    </div>
+  </div>
 
-</body></html>
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'about')">關於我</button>
+    <button class="tab-btn" onclick="openTab(event, 'experience')">工作經歷</button>
+    <button class="tab-btn" onclick="openTab(event, 'skills')">專業技能</button>
+  </nav>
+
+  <div id="about" class="tab-content active">
+    <div class="card">
+      <h2>自我介紹</h2>
+      <p>擁有 3 年以上數據分析經驗，擅長數據分析、數據探勘與可視化呈現。享受從混亂的資料中挖掘出有價值的資訊，並轉化為驅動決策的洞察。</p>
+      <br>
+      <p>曾執行過客群分析、客戶行為分析，熟練 R、Python 與 SQL，並能彈性運用 Power BI 與 Tableau 為企業建立自動化監控儀表板。</p>
+    </div>
+    <div class="card">
+      <h2>學歷背景</h2>
+      <h3>淡江大學 ｜ 統計科學學系</h3>
+      <p class="date-location">2017/09 – 2021/06</p>
+    </div>
+  </div>
+
+  <div id="experience" class="tab-content">
+    <div class="card">
+      <h3>聯合骨科器材 ｜ 數據分析工程師</h3>
+      <p class="date-location">2025/01 – 仍在職 ｜ 新竹市</p>
+      <ul>
+        <li>高階主管 BI 儀表板建置：部門協作顧問與財務部，進行經營指標定義與資料整合，涵蓋營收、毛利、庫存效期等核心 KPI，支援管理決策與績效追蹤。</li>
+        <li>使用 n8n 建立 ETL 自動化流程，每月節省 5 小時人工操作時間。</li>
+        <li>規劃並執行 Power BI 教育訓練，建立資料使用規範與視覺化最佳實務，提升內部團隊自助式分析（Self-service BI）能力。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>興立成生醫 ｜ 後端工程師</h3>
+      <p class="date-location">2023/02 – 2024/06 ｜ 新北市汐止區</p>
+      <ul>
+        <li>獨立設計並實作資料庫架構與 Schema。</li>
+        <li>配置 Docker 環境並部署 PostgreSQL，實現輕量化高效運行。</li>
+        <li>撰寫自動化 ETL 流程確保數據準確性。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>王道商業銀行 ｜ 數據分析人員</h3>
+      <p class="date-location">2021/09 – 2023/02</p>
+      <ul>
+        <li>自動化數據產製流程，每月節省 21 小時工作時間。</li>
+        <li>使用 Tableau/Power BI 監測 App/Web 行為與客群樣貌。</li>
+        <li>擔任數據講師，培訓 140 位同仁，滿意度高達 89.4 分。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="skills" class="tab-content">
+    <div class="card">
+      <h2>技術清單</h2>
+      <div class="skill-group">
+        <span class="skill-title">程式語言 & 腳本</span>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+          <span class="tag">SAS</span>
+          <span class="tag">n8n (Automation)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-title">資料庫管理</span>
+        <div class="tags">
+          <span class="tag">MSSQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Oracle</span>
+          <span class="tag">Hive</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-title">數據視覺化</span>
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Grafana</span>
+          <span class="tag">SAS Viya</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    謝謝您撥空翻閱我的履歷，希望未來有機會能與貴公司合作。
+  </footer>
+</div>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    
+    // 隱藏所有內容
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].classList.remove("active");
+    }
+
+    // 取消所有按鈕的 active 狀態
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
+    }
+
+    // 顯示當前分頁並加上 active 類別
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+</script>
+
+</body>
+</html>
