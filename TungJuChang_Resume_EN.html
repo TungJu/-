@@ -107,7 +107,7 @@
 
     /* Section Cards */
     section {
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
 
     .card {
@@ -226,15 +226,8 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
-          /* Work Experience 從新的一頁開始 */
-      .print-new-page {
-        page-break-before: always;
-        break-before: page; /* 新標準，Chrome / Edge */
-      }
-
-      /* 第二頁上方留空 */
-      .print-new-page {
-        margin-top: 10px;   /* 你可自行調整 60–120px */
+     .nav-tabs {
+        display: none !important;
       }
     }
   </style>
@@ -255,8 +248,8 @@
 
   <nav class="nav-tabs">
     <a href="#about" class="nav-link">About Me</a>
-    <a href="#experience" class="nav-link">Experience</a>
     <a href="#skills" class="nav-link">Skills</a>
+    <a href="#experience" class="nav-link">Experience</a>
     <a href="#education" class="nav-link">Education</a>
   </nav>
 
@@ -268,44 +261,7 @@
     </div>
   </section>
 
-  <section id="experience" class="print-new-page">
-    <div class="card">
-      <h2>Work Experience</h2>
-      
-      <div class="experience-item">
-        <h3>United Orthopedic Corp. | Data Analysis Engineer</h3>
-        <p class="date-location">2025/01 – Present | Yonghe Dist., New Taipei City</p>
-        <ul>
-          <li><strong>Executive Dashboard Development:</strong> Collaborated cross-functionally with consultants and finance teams to define business metrics and integrate data for core KPIs (Revenue, Gross Margin, Inventory), supporting strategic management.</li>
-          <li><strong>ETL Automation:</strong> Built automated data pipelines using <strong>n8n</strong> for collection, transformation, and reporting, reducing manual effort by 5 hours/month and enhancing data stability.</li>
-          <li><strong>Data Modeling & Visualization:</strong> Designed and maintained BI dashboards via Power BI and Grafana, managing data cleaning, metric calculation, and schema design.</li>
-          <li><strong>Internal Empowerment:</strong> Conducted Power BI training sessions to establish visualization best practices and enhance self-service BI capabilities within the team.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <h3>Hsin Li Cheng Biomedical | Software Engineer</h3>
-        <p class="date-location">2023/02 – 2024/06 | Xizhi Dist., New Taipei City</p>
-        <ul>
-          <li>Independently designed and implemented database systems, including architectural planning and schema construction.</li>
-          <li>Configured Docker environments and deployed PostgreSQL in containers, achieving lightweight deployment and high operational efficiency.</li>
-          <li>Developed automated ETL workflows to clean and import data from diverse sources, ensuring data accuracy and consistency.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <h3>O-Bank | Data Analyst</h3>
-        <p class="date-location">2021/09 – 2023/02 | Taipei</p>
-        <ul>
-          <li><strong>Process Automation:</strong> Automated data production workflows, freeing up 21 hours of operational time per month.</li>
-          <li><strong>Advanced Visualization:</strong> Designed dashboards using Tableau, Power BI, and SAS Viya covering operational metrics, sales reports, and App/Web user behavior analysis.</li>
-          <li><strong>Corporate Training:</strong> Developed curriculum and served as an instructor for data literacy courses (SQL & Data Introduction), training over 140 employees (15% of staff) with a satisfaction score of 89.4/100.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="print-new-page">
+  <section id="skills">
     <div class="card">
       <h2>Technical Skills</h2>
       <div class="skill-container">
@@ -341,6 +297,43 @@
       </div>
     </div>
   </section>
+
+  <section id="experience">
+    <div class="card">
+      <h2>Work Experience</h2>
+      
+      <div class="experience-item">
+        <h3>United Orthopedic Corp. | Data Analysis Engineer</h3>
+        <p class="date-location">2025/01 – Present | Yonghe Dist., New Taipei City</p>
+        <ul>
+          <li>Built executive BI dashboards with finance and consultants, defining core KPIs (Revenue, Gross Margin, Inventory) to support leadership decision-making.</li>
+          <li>Automated data pipelines using <strong>n8n</strong>, reducing manual work by ~5 hours/month and improving data reliability.</li>
+          <li>Led <strong>Power BI</strong>training to promote self-service analytics and improve data adoption.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <h3>Hsin Li Cheng Biomedical | Software Engineer</h3>
+        <p class="date-location">2023/02 – 2024/06 | Xizhi Dist., New Taipei City</p>
+        <ul>
+          <li>Designed and implemented backend database systems, including architecture and schema design.</li>
+          <li>Deployed <strong>PostgreSQL</strong> with <strong>Docker</strong>, enabling lightweight and reproducible environments.</li>
+          <li>Built automated <strong>ETL workflows</strong> to ingest and clean multi-source data.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <h3>O-Bank | Data Analyst</h3>
+        <p class="date-location">2021/09 – 2023/02 | Taipei</p>
+        <ul>
+          <li>Automated data production workflows, saving ~21 hours/month of manual effort.</li>
+          <li>Built dashboards in<strong>Tableau, Power BI</strong>, and <strong>SAS Viya</strong> for operational, sales, and user behavior analysis.</li>
+          <li>Delivered SQL and data literacy training to 140+ employees (15% of staff) with an average satisfaction score of 89.4/100.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
 
   <section id="education">
     <div class="card">
